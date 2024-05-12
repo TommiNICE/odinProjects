@@ -2,13 +2,23 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.aspect-ratio-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+/*     width: 60vw; /* Adjusted from a larger value to shrink the wrapper 
+    height: 45vw; */
 }
 
 .flex-container {
     display: flex;
     flex-direction: row; /* Ensure items are laid out in a row */
-    height: 100vh; /* Full viewport height */
-}
+
 
 .left-side, .right-side {
     /* Adjust the flex-basis for each child to control their width */
@@ -17,13 +27,54 @@ body {
 }
 .left-side {
     background-color: red;
+    position: relative;
+    text-align: center;
     /* Set flex-grow, flex-shrink, and flex-basis */
-    flex: 1 1 33.33%; /* flex-grow, flex-shrink, flex-basis */
+    flex: 1; /* flex-grow, flex-shrink, flex-basis */
+    min-height: 100%;
+
 }
 
 .right-side {
     background-color: blue;
     /* Set flex-grow, flex-shrink, and flex-basis */
-    flex: 2 1 66.66%; /* flex-grow, flex-shrink, flex-basis */
+    flex: 2; /* flex-grow, flex-shrink, flex-basis */
+    min-height: 100%;
+
 }
 
+.left-side img {
+    max-width: 100%; /* Ensure the image is not wider than the container */
+    max-height: 100%; /* Ensure the image is not taller than the container */
+    height: auto; /* Maintain the original aspect ratio */
+    width: auto; /* Maintain the original aspect ratio */
+    object-fit: contain; /* Ensures the image is scaled to maintain its aspect ratio while fitting within the element's box */
+    margin: auto; /* Center the image within the container */
+    display: block; /* Treat the image as a block-level element, enabling margin auto to work */
+}
+
+.left-side h1 {
+    position: absolute;
+    top: 25%;
+    width: 100%; /* Ensure it spans the full width of the container */
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+    color: white; /* Light text color for contrast */
+    margin: 0; /* Remove default margins */
+    padding: 30px 0; /* Add some padding for spacing */
+    font-size: x-small;
+}
+
+.left-side p {
+    position: absolute;
+    bottom: 0; /* Align at the bottom of the .left-side container */
+    width: 100%; /* Ensure it spans the full width of the container */
+    background-color: rgba(0, 0, 0, 0.2); /* Semi-transparent background */
+    color: white; /* Light text color for contrast */
+    margin: 0; /* Remove default margins */
+    padding: 10px 0; /* Add some padding for spacing */
+    font-size: x-small;
+}
+
+.left-side a{
+    color: white;
+}
